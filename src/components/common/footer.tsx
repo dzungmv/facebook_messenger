@@ -25,7 +25,7 @@ const Footer = () => {
     return (
         <footer>
             <div className='max-w-[1195px] mx-auto py-5 flex justify-between items-center laptop:px-4 tablet:px-4 tablet:flex-col-reverse'>
-                <p className='text-sm tablet:mt-2'>
+                <p className='text-sm tablet:mt-2 mobile:text-center'>
                     <span className='font-medium'> © Meta 2023.</span> The Apple
                     and Google Play logos are trademarks of their respective
                     owners.

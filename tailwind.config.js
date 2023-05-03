@@ -9,10 +9,13 @@ module.exports = {
         extend: {
             colors: {
                 primary: '#0a7cff',
+                secondary: '#0a67eb',
             },
             backgroundImage: {
                 messenger:
                     'linear-gradient(83.84deg, #0088FF -6.87%, #A033FF 26.54%, #FF5C87 58.58%)',
+                messengerShadow:
+                    'linear-gradient(90deg, #0088ff 0%, #a033ff 55.81%, #ff5c87 109.33%)',
             },
             screens: {
                 mobile: { max: '600px' },
@@ -89,6 +92,12 @@ module.exports = {
                     '0%': { backgroundColor: 'hls(200, 20%, 80%)' },
                     '100%': { backgroundColor: 'hls(200, 20%, 95%)' },
                 },
+            },
+            boxShadow: {
+                f: '#3644b7 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px',
+                s: '#925ff6 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px',
+                t: '#d781f0 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px',
+                fo: '#f5e3c2 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px',
             },
         },
     },
