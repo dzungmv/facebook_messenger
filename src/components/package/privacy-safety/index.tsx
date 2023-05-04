@@ -152,7 +152,7 @@ const PrivacySafetSC: React.FC = () => {
                         we work to protect your safety on Messenger:
                     </h3>
                     <div className='flex gap-10 w-[90%] mx-auto mt-14 flex-wrap onlyTablet:gap-5 tablet:w-full'>
-                        <div className='bg-white rounded-[20px] w-[calc(100%/2-35px)] onlyTablet:w-[calc(100%/2-10px)] mobile:w-full pb-7 pt-7 px-7 text-start border border-dashed border-[#9b111e]'>
+                        <div className='bg-white rounded-[20px] w-[calc(100%/2-20px)] onlyTablet:w-[calc(100%/2-10px)] mobile:w-full pb-7 pt-7 px-7 text-start border border-dashed border-[#9b111e]'>
                             <h4 className=' text-2xl font-semibold text-[#9b111e]'>
                                 Reduce unwanted interactions
                             </h4>
@@ -165,7 +165,7 @@ const PrivacySafetSC: React.FC = () => {
                             </p>
                         </div>
 
-                        <div className='bg-white rounded-[20px] w-[calc(100%/2-35px)] onlyTablet:w-[calc(100%/2-10px)] mobile:w-full pb-7 pt-7 px-7 text-start border border-dashed border-[#0f52ba]'>
+                        <div className='bg-white rounded-[20px] w-[calc(100%/2-20px)] onlyTablet:w-[calc(100%/2-10px)] mobile:w-full pb-7 pt-7 px-7 text-start border border-dashed border-[#0f52ba]'>
                             <h4 className=' text-2xl font-semibold text-[#0f52ba]'>
                                 Control who you let in
                             </h4>
@@ -179,7 +179,7 @@ const PrivacySafetSC: React.FC = () => {
                             </p>
                         </div>
 
-                        <div className='bg-white rounded-[20px] w-[calc(100%/2-35px)] onlyTablet:w-[calc(100%/2-10px)] mobile:w-full pb-7 pt-7 px-7 text-start border border-dashed border-[#00c957]'>
+                        <div className='bg-white rounded-[20px] w-[calc(100%/2-20px)] onlyTablet:w-[calc(100%/2-10px)] mobile:w-full pb-7 pt-7 px-7 text-start border border-dashed border-[#00c957]'>
                             <h4 className=' text-2xl font-semibold text-[#00c957]'>
                                 Reduce the spread of misinformation
                             </h4>
@@ -196,7 +196,7 @@ const PrivacySafetSC: React.FC = () => {
                             </p>
                         </div>
 
-                        <div className='bg-white rounded-[20px] w-[calc(100%/2-35px)] onlyTablet:w-[calc(100%/2-10px)] mobile:w-full pb-7 pt-7 px-7 text-start border border-dashed border-[#6a0dad]'>
+                        <div className='bg-white rounded-[20px] w-[calc(100%/2-20px)] onlyTablet:w-[calc(100%/2-10px)] mobile:w-full pb-7 pt-7 px-7 text-start border border-dashed border-[#6a0dad]'>
                             <h4 className=' text-2xl font-semibold text-[#6a0dad]'>
                                 Foster a safer community
                             </h4>
@@ -211,7 +211,7 @@ const PrivacySafetSC: React.FC = () => {
                             </p>
                         </div>
 
-                        <div className='bg-white rounded-[20px] w-[calc(100%/2-35px)] onlyTablet:w-[calc(100%/2-10px)] mobile:w-full pb-7 pt-7 px-7 text-start border border-dashed border-primary'>
+                        <div className='bg-white rounded-[20px] w-[calc(100%/2-20px)] onlyTablet:w-[calc(100%/2-10px)] mobile:w-full pb-7 pt-7 px-7 text-start border border-dashed border-primary'>
                             <h4 className=' text-2xl font-semibold text-primary'>
                                 Enhance safeguards for minors
                             </h4>
@@ -228,7 +228,7 @@ const PrivacySafetSC: React.FC = () => {
                             </p>
                         </div>
 
-                        <div className='bg-white rounded-[20px] w-[calc(100%/2-35px)] onlyTablet:w-[calc(100%/2-10px)] mobile:w-full pb-7 pt-7 px-7 text-start border border-dashed border-amber-500'>
+                        <div className='bg-white rounded-[20px] w-[calc(100%/2-20px)] onlyTablet:w-[calc(100%/2-10px)] mobile:w-full pb-7 pt-7 px-7 text-start border border-dashed border-amber-500'>
                             <h4 className=' text-2xl font-semibold text-amber-500'>
                                 Review and enforce
                             </h4>

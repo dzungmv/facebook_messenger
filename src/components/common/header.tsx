@@ -20,10 +20,6 @@ const navs = [
         name: 'Privacy & Safety',
         href: '/privacy-safety',
     },
-    {
-        name: 'For developers',
-        href: '/for-developers',
-    },
 ];
 
 interface NavProps {
@@ -74,6 +70,14 @@ const Header = () => {
                                 </Link>
                             );
                         })}
+
+                        <a
+                            className='group text-sm font-medium relative'
+                            href='https://developers.facebook.com/products/messenger/'
+                            target='_blank'>
+                            <div className='py-[6px]'> For Developers</div>
+                            <div className='absolute bottom-0 w-full h-[3px] rounded-lg scale-0  bg-primary group-hover:scale-100 group-focus:scale-x-100 transition-all duration-300'></div>
+                        </a>
                     </nav>
 
                     <div

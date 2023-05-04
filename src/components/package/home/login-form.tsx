@@ -1,6 +1,13 @@
+'use client';
+
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const LoginForm = () => {
+    const router = useRouter();
+    const handleLogin = () => {
+        router.push('/messenger');
+    };
     return (
         <section className='max-w-[350px] mobile:max-w-none'>
             <input
@@ -14,7 +21,9 @@ const LoginForm = () => {
                 className='w-full px-4 py-3 bg-gray-100 rounded-3xl'
             />
 
-            <button className='bg-primary py-3 rounded-3xl mt-5 w-full text-lg font-medium text-white'>
+            <button
+                className='bg-primary py-3 rounded-3xl mt-5 w-full text-lg font-medium text-white'
+                onClick={handleLogin}>
                 Login
             </button>
 
