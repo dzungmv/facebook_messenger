@@ -1,8 +1,19 @@
+'use client';
+
 import ImageC from '@/components/common/image';
+import { AuthContext } from '@/components/context/auth-provider';
 import Link from 'next/link';
+import { useContext } from 'react';
 import MessengerSearch from './search';
 
 const MessenserAside = () => {
+    const { user, signOut } = useContext(AuthContext);
+
+    const HANDLE = {
+        signout: () => {
+            signOut();
+        },
+    };
     return (
         <aside className='w-full h-full border border-r-[1px] relative'>
             <header className='absolute top-0 left-0 right-0 bg-white'>
@@ -49,13 +60,21 @@ const MessenserAside = () => {
                 })}
             </div>
 
-            <footer className='absolute bottom-0 left-0 right-0 bg-white flex items-center justify-between p-3 border border-t-[1px] px-4'>
+            <footer className='absolute bottom-0 left-0 right-0 bg-white flex items-center justify-between p-2 border border-t-[1px] px-4'>
                 <div className='flex items-center gap-2'>
-                    <figure className='w-10 h-10 bg-messenger rounded-full'></figure>
-                    <p className='text-sm font-medium'>Minh Dzung</p>
+                    <figure className='w-10 h-10 rounded-full'>
+                        <ImageC
+                            src={user?.photoURL}
+                            alt='avatar'
+                            style='rounded-full w-full h-full object-cover'
+                        />
+                    </figure>
+                    <p className='text-sm font-medium'>{user?.displayName}</p>
                 </div>
 
-                <div className='w-10 h-10 flex items-center justify-center group hover:cursor-pointer'>
+                <div
+                    className='w-10 h-10 flex items-center justify-center group hover:cursor-pointer'
+                    onClick={HANDLE.signout}>
                     <i className='fa-regular fa-right-from-bracket text-lg group-hover:opacity-[0.3]'></i>
                 </div>
             </footer>

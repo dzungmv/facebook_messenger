@@ -10,6 +10,7 @@ const Chat: React.FC = () => {
         <section className='flex h-full'>
             <div className='flex-1'>
                 <MainChat
+                    infoSection={infoSection}
                     openInfoSection={() => setInfoSection((prev) => !prev)}
                 />
             </div>

@@ -4,11 +4,11 @@ import Image, { StaticImageData } from 'next/image';
 
 interface ImageProps {
     alt?: string;
-    src: StaticImageData | string;
+    src?: StaticImageData | string;
     style?: string;
 }
 
-export default function ImageC({ alt = 'image', src, style }: ImageProps) {
+export default function ImageC({ alt = 'image', src = '', style }: ImageProps) {
     return (
         <Image
             className={style}

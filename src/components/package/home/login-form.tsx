@@ -1,16 +1,102 @@
 'use client';
+import {
+    FacebookAuthProvider,
+    getAdditionalUserInfo,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signInWithRedirect,
+} from 'firebase/auth';
 
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { auth, db } from '@/components/firebase';
+
+import ImageC from '@/components/common/image';
+import { User } from '@/components/types/auth-public';
+import { addDoc, collection } from 'firebase/firestore';
+import { google_icon } from '../../../../public';
+
+const facebookProvider = new FacebookAuthProvider();
+const googleProvider = new GoogleAuthProvider();
+
+interface IAuthProps {
+    additionalUserInfo: {
+        isNewUser: boolean;
+    };
+    user: User;
+}
 
 const LoginForm = () => {
-    const router = useRouter();
-    const handleLogin = () => {
-        router.push('/messenger');
+    const HANDLE = {
+        loginWithFacebook: async () => {
+            try {
+                await signInWithRedirect(auth, facebookProvider);
+            } catch (error) {}
+        },
+        loginWithGoogle: async () => {
+            try {
+                // console.log('Login with Google');
+
+                const res = await signInWithPopup(auth, googleProvider);
+
+                const detais = getAdditionalUserInfo(res);
+
+                console.log('detais', detais);
+
+                if (detais?.isNewUser) {
+                    await addDoc(collection(db, 'users'), {
+                        uid: res.user?.uid,
+                        email: res.user?.email,
+                        displayName: res.user?.displayName,
+                        photoURL: res.user?.photoURL,
+                        providerId: res.user?.providerId,
+                    });
+                }
+
+                // console.log(
+                //     "You're signed in",
+                //     res?.additionalUserInfo?.isNewUser,
+                //     res
+                // );
+
+                // if (res?.additionalUserInfo?.isNewUser) {
+                //     console.log('New user');
+
+                //     const addRef = await addDoc(collection(db, 'users'), {
+                //         uid: res.user?.uid,
+                //         email: res.user?.email,
+                //         displayName: res.user?.displayName,
+                //         photoURL: res.user?.photoURL,
+                //         providerId: res.user?.providerId,
+                //     });
+
+                //     console.log('Document written with ID: ', addRef.id);
+                // }
+            } catch (error) {
+                console.log(error);
+            }
+        },
     };
     return (
-        <section className='max-w-[350px] mobile:max-w-none'>
-            <input
+        <section className='flex flex-col gap-3'>
+            <div
+                className='border flex items-center gap-2 w-[65%] tablet:w-full py-2 justify-center rounded-lg hover:cursor-pointer hover:bg-slate-100'
+                onClick={HANDLE.loginWithFacebook}>
+                <figure className='w-8 h-8'>
+                    <ImageC
+                        src='https://jungjung261.blob.core.windows.net/nextjs-project/system-ui/branch.svg'
+                        style='w-full h-full object-contain'
+                    />
+                </figure>
+                <span>Sign in with Facebook</span>
+            </div>
+            <div
+                className='border flex items-center gap-2 w-[65%] tablet:w-full py-2 justify-center rounded-lg hover:cursor-pointer hover:bg-slate-100'
+                onClick={HANDLE.loginWithGoogle}>
+                <figure className='w-7 h-7'>
+                    <ImageC src={google_icon} />
+                </figure>
+                <span>Sign in with Google</span>
+            </div>
+            {/* <input
                 type='text'
                 placeholder='Email address or phone number'
                 className='w-full px-4 py-3 bg-gray-100 rounded-3xl mb-4'
@@ -40,7 +126,7 @@ const LoginForm = () => {
                 <label htmlFor='keep-signin' className='text-sm text-gray-500'>
                     Keep me sign in
                 </label>
-            </div>
+            </div> */}
         </section>
     );
 };

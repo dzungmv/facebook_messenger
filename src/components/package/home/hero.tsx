@@ -1,5 +1,5 @@
 import ImageC from '@/components/common/image';
-import { apple_icon, microsoft_icon } from '../../../../public';
+import { apple_icon, google_icon, microsoft_icon } from '../../../../public';
 import LoginForm from './login-form';
 
 const HomeHero = () => {
@@ -23,7 +23,7 @@ const HomeHero = () => {
                     </div>
                 </Link> */}
 
-                <div className='tablet:flex tablet:items-center tablet:justify-center'>
+                <div className=''>
                     <LoginForm />
                 </div>
 
