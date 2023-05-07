@@ -31,13 +31,15 @@ export default function AuthProvider({ children }: IContextProps) {
                 router.push('/messenger');
                 return;
             }
-            setUser(null);
-            setLoading(false);
-            router.push('/');
+            if (!user) {
+                setUser(null);
+                setLoading(false);
+                router.push('/');
+            }
         });
 
         return () => unsubscribed();
-    }, [setUser]);
+    }, [user]);
 
     const signOut = () => {
         auth.signOut();

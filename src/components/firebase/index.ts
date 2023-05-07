@@ -1,6 +1,7 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { getApp, initializeApp } from 'firebase/app';
+import { connectAuthEmulator, getAuth } from 'firebase/auth';
+import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore';
+import { connectStorageEmulator, getStorage } from 'firebase/storage';
 
 
 const app = initializeApp(
@@ -15,7 +16,26 @@ const app = initializeApp(
     }
 );
 
-export const auth = getAuth(app);
-export const db = getFirestore(app);
+const db = getFirestore(app);
+const auth = getAuth(app);
+const storage = getStorage(app);
+
+
+
+
+if (process.env.NODE_ENV === 'development') {
+
+    connectFirestoreEmulator(db, '127.0.0.1', 8080);
+    connectAuthEmulator(auth, 'http://127.0.0.1:9099');
+    connectStorageEmulator(storage, 'http://127.0.0.1', 9199);
+
+
+}
+
+
+
+
+
+export { auth, db, storage }
 export default app;
 

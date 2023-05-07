@@ -4,5 +4,5 @@ export interface User {
     displayName: string;
     photoURL: string;
     providerId: string;
-
+    createdAt?: string;
 }

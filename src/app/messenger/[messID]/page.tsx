@@ -13,5 +13,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page({ params }: IParamProps) {
-    return <Chat />;
+    return <Chat userId={params.messID} />;
 }

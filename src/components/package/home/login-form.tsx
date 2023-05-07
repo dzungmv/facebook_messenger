@@ -10,9 +10,10 @@ import {
 import { auth, db } from '@/components/firebase';
 
 import ImageC from '@/components/common/image';
+import { addDocument } from '@/components/firebase/services';
 import { User } from '@/components/types/auth-public';
-import { addDoc, collection } from 'firebase/firestore';
 import { google_icon } from '../../../../public';
+import { doc, setDoc } from 'firebase/firestore';
 
 const facebookProvider = new FacebookAuthProvider();
 const googleProvider = new GoogleAuthProvider();
@@ -39,37 +40,16 @@ const LoginForm = () => {
 
                 const detais = getAdditionalUserInfo(res);
 
-                console.log('detais', detais);
-
                 if (detais?.isNewUser) {
-                    await addDoc(collection(db, 'users'), {
-                        uid: res.user?.uid,
-                        email: res.user?.email,
-                        displayName: res.user?.displayName,
-                        photoURL: res.user?.photoURL,
-                        providerId: res.user?.providerId,
+                    await setDoc(doc(db, 'users', res.user.uid), {
+                        uid: res.user.uid,
+                        displayName: res.user.displayName,
+                        email: res.user.email,
+                        photoURL: res.user.photoURL,
                     });
+
+                    await setDoc(doc(db, 'user-chats', res.user.uid), {});
                 }
-
-                // console.log(
-                //     "You're signed in",
-                //     res?.additionalUserInfo?.isNewUser,
-                //     res
-                // );
-
-                // if (res?.additionalUserInfo?.isNewUser) {
-                //     console.log('New user');
-
-                //     const addRef = await addDoc(collection(db, 'users'), {
-                //         uid: res.user?.uid,
-                //         email: res.user?.email,
-                //         displayName: res.user?.displayName,
-                //         photoURL: res.user?.photoURL,
-                //         providerId: res.user?.providerId,
-                //     });
-
-                //     console.log('Document written with ID: ', addRef.id);
-                // }
             } catch (error) {
                 console.log(error);
             }
