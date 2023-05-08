@@ -26,6 +26,8 @@ export default function AuthProvider({ children }: IContextProps) {
             if (Object.keys(user as User).length > 0) {
                 setUser(user as User);
                 setLoading(false);
+                console.log('Is user', user);
+
                 router.push('/messenger');
                 return;
             }
@@ -33,6 +35,7 @@ export default function AuthProvider({ children }: IContextProps) {
             setUser(null);
             setLoading(false);
             router.push('/');
+            console.log('Is not user', user);
         });
 
         return () => unsubscribed();
