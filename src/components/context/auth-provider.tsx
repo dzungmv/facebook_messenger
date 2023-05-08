@@ -36,12 +36,14 @@ export default function AuthProvider({ children }: IContextProps) {
             // if (!user) {
             setUser(null);
             setLoading(false);
-            // router.push('/');
+            router.push('/');
             console.log('Is not user', user);
         });
 
-        return () => unsubscribed();
-    }, [setUser]);
+        return () => {
+            unsubscribed();
+        };
+    }, [router]);
 
     const signOut = () => {
         auth.signOut();
