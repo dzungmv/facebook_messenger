@@ -16,6 +16,10 @@ const app = initializeApp(
     }
 );
 
+
+console.log("check app", app.name);
+
+
 const db = getFirestore(app);
 const auth = getAuth(app);
 const storage = getStorage(app);

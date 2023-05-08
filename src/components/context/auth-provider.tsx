@@ -45,7 +45,7 @@ export default function AuthProvider({ children }: IContextProps) {
         return () => {
             unsubscribed();
         };
-    }, [setUser]);
+    }, [setUser, router]);
 
     const signOut = () => {
         auth.signOut();
