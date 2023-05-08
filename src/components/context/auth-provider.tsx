@@ -23,7 +23,7 @@ export default function AuthProvider({ children }: IContextProps) {
     const router = useRouter();
     useEffect(() => {
         const unsubscribed = auth.onAuthStateChanged((user) => {
-            if (Object.keys(user as User).length > 0) {
+            if (user) {
                 setUser(user as User);
                 setLoading(false);
                 console.log('Is user', user);
