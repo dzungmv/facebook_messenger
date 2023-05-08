@@ -23,6 +23,8 @@ export default function AuthProvider({ children }: IContextProps) {
     const router = useRouter();
     useEffect(() => {
         const unsubscribed = auth.onAuthStateChanged((user) => {
+            console.log(typeof user);
+
             if (user) {
                 setUser(user as User);
                 setLoading(false);
@@ -39,7 +41,7 @@ export default function AuthProvider({ children }: IContextProps) {
         });
 
         return () => unsubscribed();
-    }, [user]);
+    }, [setUser]);
 
     const signOut = () => {
         auth.signOut();
