@@ -25,7 +25,6 @@ export default function ImageC({
             width='0'
             height='0'
             sizes='100vw'
-            placeholder='blur'
         />
     );
 }

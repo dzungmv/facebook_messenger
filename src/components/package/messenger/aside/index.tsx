@@ -6,6 +6,7 @@ import { db } from '@/components/firebase';
 import { doc, onSnapshot } from 'firebase/firestore';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
+import { chat_gpt } from '../../../../../public';
 import Chat from '../chat';
 import MessengerSearch from './search';
 
@@ -64,6 +65,28 @@ const MessenserAside = () => {
                 </header>
 
                 <div className='pt-[125px] w-full overflow-x-hidden px-2 overflow-y-auto h-full hidden tablet:block'>
+                    <Link
+                        href='/messenger/chat-gpt'
+                        className='flex items-center gap-2 rounded-xl hover:bg-slate-100 hover:cursor-pointer p-2 overflow-x-hidden w-full'>
+                        <div className='w-10 h-10 rounded-full'>
+                            <Avatar
+                                src={chat_gpt}
+                                style='w-full h-full rounded-full object-cover'
+                            />
+                        </div>
+
+                        <div className='flex-1'>
+                            <h2 className='font-medium text-sm'>
+                                Chat with AI
+                            </h2>
+
+                            <div className='flex items-center gap-1'>
+                                <p className='text-xs text-gray-500 whitespace-nowrap text-ellipsis overflow-x-hidden max-w-[100px] block'></p>
+
+                                <span className='text-xs text-gray-500'>·</span>
+                            </div>
+                        </div>
+                    </Link>
                     {userChats &&
                         Object.entries(userChats)?.map(
                             (item: any, index: number) => {
@@ -99,9 +122,6 @@ const MessenserAside = () => {
                                                     <span className='text-xs text-gray-500'>
                                                         ·
                                                     </span>
-                                                    <p className='text-xs text-gray-500'>
-                                                        12m
-                                                    </p>
                                                 </div>
                                             )}
                                         </div>
@@ -112,6 +132,22 @@ const MessenserAside = () => {
                 </div>
 
                 <div className='pt-[125px] w-full overflow-x-hidden px-2 overflow-y-auto h-full tablet:hidden'>
+                    <Link
+                        href='/messenger/chat-gpt'
+                        className='flex items-center gap-2 rounded-xl hover:bg-slate-100 hover:cursor-pointer p-2 overflow-x-hidden w-full'>
+                        <div className='w-10 h-10 rounded-full'>
+                            <Avatar
+                                src={chat_gpt}
+                                style='w-full h-full rounded-full object-cover'
+                            />
+                        </div>
+
+                        <div className='flex-1'>
+                            <h2 className='font-medium text-sm'>
+                                Chat with AI
+                            </h2>
+                        </div>
+                    </Link>
                     {userChats &&
                         Object.entries(userChats)?.map(
                             (item: any, index: number) => {
@@ -143,9 +179,6 @@ const MessenserAside = () => {
                                                     <span className='text-xs text-gray-500'>
                                                         ·
                                                     </span>
-                                                    <p className='text-xs text-gray-500'>
-                                                        12m
-                                                    </p>
                                                 </div>
                                             )}
                                         </div>
