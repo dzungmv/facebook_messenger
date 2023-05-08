@@ -38,6 +38,7 @@ module.exports = {
                 fadeInTop:
                     'fadeInTop 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
                 skeleton: 'skeleton 1s linear infinite alternate',
+                gradient: 'gradient 15s ease infinite',
             },
             keyframes: {
                 fadeUp: {
@@ -91,6 +92,11 @@ module.exports = {
                 skeleton: {
                     '0%': { backgroundColor: 'hls(200, 20%, 80%)' },
                     '100%': { backgroundColor: 'hls(200, 20%, 95%)' },
+                },
+                gradient: {
+                    '0%': { backgroundPosition: '0% 50%' },
+                    '50%': { backgroundPosition: '100% 50%' },
+                    '100%': { backgroundPosition: '0% 50%' },
                 },
             },
             boxShadow: {

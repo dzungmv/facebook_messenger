@@ -9,9 +9,10 @@ import MainChat from './main';
 
 interface IProps {
     userId: string;
+    closeChat?: () => void;
 }
 
-const Chat: React.FC<IProps> = ({ userId }) => {
+const Chat: React.FC<IProps> = ({ userId, closeChat }) => {
     const [infoSection, setInfoSection] = useState<boolean>(false);
 
     const [user, setUser] = useState<User>({} as User);
@@ -37,11 +38,15 @@ const Chat: React.FC<IProps> = ({ userId }) => {
                     infoSection={infoSection}
                     openInfoSection={() => setInfoSection((prev) => !prev)}
                     userI={user}
+                    closeChat={closeChat}
                 />
             </div>
             {infoSection && (
-                <div className='w-[30%] border border-l'>
-                    <ChatInfo />
+                <div className='w-[30%] border border-l tablet:w-full tablet:fixed top-0 right-0 bottom-0 left-0 bg-white'>
+                    <ChatInfo
+                        userI={user}
+                        openInfoSection={() => setInfoSection((prev) => !prev)}
+                    />
                 </div>
             )}
         </section>

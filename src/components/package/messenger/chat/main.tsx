@@ -13,12 +13,14 @@ type IMainChatProps = {
     infoSection: boolean;
     openInfoSection: (state: boolean) => void | undefined;
     userI: User;
+    closeChat?: () => void;
 };
 
 const MainChat: React.FC<IMainChatProps> = ({
     infoSection,
     openInfoSection,
     userI,
+    closeChat,
 }) => {
     const [messages, setMessages] = useState<any[]>([]);
 
@@ -41,7 +43,14 @@ const MainChat: React.FC<IMainChatProps> = ({
     return (
         <section className='relative w-full h-full'>
             <header className='p-1 border border-b flex items-center justify-between absolute top-0 right-0 left-0 bg-[rgba(255,255,255,.98)]'>
-                <div className='flex items-center gap-2 p-2 rounded-lg hover:bg-slate-200 hover:cursor-pointer'>
+                <div className='flex items-center gap-2 p-2 rounded-lg hover:cursor-pointer'>
+                    <div
+                        className='w-10 h-10 items-center justify-center hidden tablet:flex'
+                        onClick={() => {
+                            closeChat && closeChat();
+                        }}>
+                        <i className='fa-solid fa-arrow-left text-xl text-gray-500'></i>
+                    </div>
                     <figure className='w-10 h-10 rounded-full relative'>
                         <Avatar
                             src={userI?.photoURL}
@@ -60,10 +69,10 @@ const MainChat: React.FC<IMainChatProps> = ({
 
                 <div className='flex items-center gap-2'>
                     <div className='w-9 h-9 hover:bg-slate-200 rounded-full flex justify-center items-center hover:cursor-pointer'>
-                        <i className='fa-solid fa-phone text-lg text-primary'></i>
+                        <i className='fa-solid fa-phone text-lg text-gray-500'></i>
                     </div>
                     <div className='w-9 h-9 hover:bg-slate-200 rounded-full flex justify-center items-center hover:cursor-pointer'>
-                        <i className='fa-solid fa-video text-lg text-primary'></i>
+                        <i className='fa-solid fa-video text-lg text-gray-500'></i>
                     </div>
                     <div
                         className='w-9 h-9 hover:bg-slate-200 rounded-full flex justify-center items-center hover:cursor-pointer'

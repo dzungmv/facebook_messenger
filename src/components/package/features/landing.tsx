@@ -251,9 +251,9 @@ const FeaturesLanding = () => {
                         </h2>
 
                         <p className='my-4 text-[rgba(89,89,89,1)]'>
-                            Opt in to use your device's face or fingerprint ID
-                            to unlock Messenger, so only you have access to your
-                            chats.
+                            Opt in to use your device&apos;s face or fingerprint
+                            ID to unlock Messenger, so only you have access to
+                            your chats.
                         </p>
                     </div>
                 </div>

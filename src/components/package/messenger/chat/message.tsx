@@ -27,7 +27,7 @@ const Message: React.FC<MessageProps> = ({ messages, userI }) => {
             }}>
             <div
                 ref={messRef}
-                className='flex items-center gap-2'
+                className='flex items-start gap-2'
                 style={{
                     maxWidth: '70%',
                     flexDirection:
@@ -43,24 +43,26 @@ const Message: React.FC<MessageProps> = ({ messages, userI }) => {
                 )}
 
                 <div className=''>
-                    <p
-                        className='p-2 px-3 bg-primary text-white text-sm'
-                        style={{
-                            backgroundColor:
-                                messages.senderId === user?.uid
-                                    ? '#3b82f6'
-                                    : '#f3f4f6',
-                            color:
-                                messages.senderId === user?.uid
-                                    ? '#fff'
-                                    : '#000',
-                            borderRadius:
-                                messages.senderId === user?.uid
-                                    ? '10px 0 10px 10px'
-                                    : '0 10px 10px 10px',
-                        }}>
-                        {messages?.message}
-                    </p>
+                    {messages.message && (
+                        <p
+                            className='p-2 px-3 bg-primary text-white text-sm'
+                            style={{
+                                backgroundColor:
+                                    messages.senderId === user?.uid
+                                        ? '#3b82f6'
+                                        : '#f3f4f6',
+                                color:
+                                    messages.senderId === user?.uid
+                                        ? '#fff'
+                                        : '#000',
+                                borderRadius:
+                                    messages.senderId === user?.uid
+                                        ? '10px 0 10px 10px'
+                                        : '0 10px 10px 10px',
+                            }}>
+                            {messages?.message}
+                        </p>
+                    )}
                     {messages?.media && (
                         <figure className='max-w-[250px]'>
                             <ImageC

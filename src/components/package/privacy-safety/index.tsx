@@ -64,10 +64,10 @@ const PrivacySafetSC: React.FC = () => {
 
                         <p className='mt-5 text-gray-600 text-lg mobile:text-base'>
                             We want you to know what information we collect and
-                            how we use it. We don't use the content of your
+                            how we use it. We don&apos;t use the content of your
                             messages with other people for ad targeting, which
-                            means that advertisers can't target you based on
-                            what you say in messages. As with other parts of
+                            means that advertisers can&apos;t target you based
+                            on what you say in messages. As with other parts of
                             Facebook, we collect information from Messenger
                             primarily to provide the service, improve the
                             product experience and keep people safe and secure.
@@ -99,7 +99,8 @@ const PrivacySafetSC: React.FC = () => {
                         </h2>
 
                         <h3 className='text-gray-500 text-lg mt-5'>
-                            Messenger's approach to safer private messaging:
+                            Messenger&apos;s approach to safer private
+                            messaging:
                         </h3>
                         <div className='flex gap-16 w-[90%] mx-auto mt-14 tablet:w-full onlyTablet:gap-5 tablet:flex-wrap tablet:justify-center'>
                             <div className='bg-white rounded-[20px] w-[calc(100%/3)] onlyTablet:w-[calc(100%/2-10px)] mobile:w-full pb-[80px] pt-16 px-7 text-center shadow-f'>
@@ -147,9 +148,10 @@ const PrivacySafetSC: React.FC = () => {
                     </h2>
 
                     <h3 className='text-gray-500 text-lg mt-5'>
-                        That's why we're constantly working to stop malicious
-                        activity before it reaches you. <br /> Here are the ways
-                        we work to protect your safety on Messenger:
+                        That&apos;s why we&apos;re constantly working to stop
+                        malicious activity before it reaches you. <br /> Here
+                        are the ways we work to protect your safety on
+                        Messenger:
                     </h3>
                     <div className='flex gap-10 w-[90%] mx-auto mt-14 flex-wrap onlyTablet:gap-5 tablet:w-full'>
                         <div className='bg-white rounded-[20px] w-[calc(100%/2-20px)] onlyTablet:w-[calc(100%/2-10px)] mobile:w-full pb-7 pt-7 px-7 text-start border border-dashed border-[#9b111e]'>
@@ -158,8 +160,8 @@ const PrivacySafetSC: React.FC = () => {
                             </h4>
                             <p className='mt-7 text-lg text-gray-500'>
                                 We filter potentially harmful messages so they
-                                don't reach your inbox. Safety notices may pop
-                                up in your chats to help you spot potential
+                                don&apos;t reach your inbox. Safety notices may
+                                pop up in your chats to help you spot potential
                                 scams or imposters, and we detect and block
                                 millions of fake accounts on Facebook every day.
                             </p>
@@ -174,8 +176,8 @@ const PrivacySafetSC: React.FC = () => {
                                 from harm, and tools like multi-block help you
                                 control your experience. You decide who reaches
                                 your Chats list, who goes to your message
-                                request folder, and who can't message or call
-                                you at all.
+                                request folder, and who can&apos;t message or
+                                call you at all.
                             </p>
                         </div>
 
@@ -204,7 +206,7 @@ const PrivacySafetSC: React.FC = () => {
                                 If you come across possible harmful content or
                                 behaviour, such as harassment or impersonation,
                                 please report it. If we see that it violates our
-                                Community Standards, we'll take appropriate
+                                Community Standards, we&apos;ll take appropriate
                                 action, which could include disabling their
                                 account or limiting their ability to send
                                 messages.

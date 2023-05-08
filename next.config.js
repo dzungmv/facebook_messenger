@@ -8,6 +8,7 @@ const nextConfig = {
             'jungjung261.blob.core.windows.net',
             'graph.facebook.com',
             'lh3.googleusercontent.com',
+            'firebasestorage.googleapis.com',
         ],
     },
     env: {

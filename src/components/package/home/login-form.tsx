@@ -40,6 +40,8 @@ const LoginForm = () => {
 
                 const detais = getAdditionalUserInfo(res);
 
+                // console.log('Check details', detais);
+
                 if (detais?.isNewUser) {
                     await setDoc(doc(db, 'users', res.user.uid), {
                         uid: res.user.uid,

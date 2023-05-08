@@ -18,8 +18,10 @@ import {
 } from 'firebase/firestore';
 
 import { AuthContext } from '@/components/context/auth-provider';
+import { useRouter } from 'next/navigation';
 
 const MessengerSearch = () => {
+    const router = useRouter();
     const { user } = useContext(AuthContext);
     const [searchBox, setSearchBox] = useState<boolean>(false);
 
@@ -93,6 +95,8 @@ const MessengerSearch = () => {
                         [combinedId + '.date']: serverTimestamp(),
                     });
                 }
+
+                // router.push(`/messenger/${combinedId}`);
             } catch (error) {
                 console.log('error', error);
             }
@@ -103,6 +107,8 @@ const MessengerSearch = () => {
         },
     };
 
+    // console.log('searchResult', searchResult);
+
     return (
         <>
             <div className='w-full relative'>
@@ -110,7 +116,7 @@ const MessengerSearch = () => {
                     className='rounded-full bg-slate-100 py-[10px] px-3 text-sm flex items-center gap-1 hover:cursor-text mx-4'
                     onClick={HANDLE.openSearchBox}>
                     <i className='fa-regular fa-magnifying-glass text-base text-gray-500'></i>
-                    <span className='text-gray-500'>Search Messenger</span>
+                    <span className='text-gray-500'>Search user</span>
                 </div>
                 {searchBox && (
                     <div className='bg-white absolute top-0 w-full h-[100vh] left-0 right-0 animate-fadeInLeft px-4'>
@@ -124,7 +130,7 @@ const MessengerSearch = () => {
                             <input
                                 type='text'
                                 value={username}
-                                placeholder='Search Messenger'
+                                placeholder='Search user'
                                 onKeyDown={HANDLE.keyDown}
                                 className='flex-1 bg-slate-100 rounded-full px-3 py-[10px] text-sm outline-none text-gray-500'
                                 onChange={(e) => setUsername(e.target.value)}
@@ -149,7 +155,11 @@ const MessengerSearch = () => {
                                 </div>
                             )}
 
-                            {error && <span>Something went wrong</span>}
+                            {!Object.keys(searchResult).length && (
+                                <span className='text-center text-gray-500 text-sm'>
+                                    No user found
+                                </span>
+                            )}
                         </div>
                     </div>
                 )}

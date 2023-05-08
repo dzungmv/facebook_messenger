@@ -1,15 +1,34 @@
 'use client';
 
+import { Avatar } from '@/components/common/image';
+import { User } from '@/components/types/auth-public';
 import { useState } from 'react';
 
-const ChatInfo: React.FC = () => {
+type IProps = {
+    userI: User;
+    openInfoSection: (state: boolean) => void;
+};
+const ChatInfo: React.FC<IProps> = ({ userI, openInfoSection }) => {
     const [mflSection, setMflSection] = useState<boolean>(false);
+
     return (
         <section className='px-2  animate-fadeInRight'>
+            <div
+                className='w-10 h-10 items-center justify-center hidden tablet:flex mt-3'
+                onClick={() => openInfoSection(false)}>
+                <i className='fa-solid fa-arrow-left text-xl text-gray-500'></i>
+            </div>
             <header className='pt-5 flex flex-col justify-center items-center gap-2'>
-                <figure className='w-16 h-16 rounded-full bg-messengerShadow'></figure>
+                <figure className='w-16 h-16 rounded-full '>
+                    <Avatar
+                        src={userI?.photoURL}
+                        style='w-full h-full rounded-full object-cover'
+                    />
+                </figure>
                 <div className='w-full text-center'>
-                    <h2 className='text-sm font-semibold'>Nguyen Van A</h2>
+                    <h2 className='text-sm font-semibold'>
+                        {userI?.displayName}
+                    </h2>
                     <p className='text-xs text-gray-500'>Active now</p>
                 </div>
             </header>

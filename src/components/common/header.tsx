@@ -7,7 +7,12 @@ import { usePathname } from 'next/navigation';
 import { logo } from '../../../public';
 import ImageC from './image';
 
-const navs = [
+interface NavProps {
+    name: string;
+    href: string;
+}
+
+const navs: NavProps[] = [
     {
         name: 'Features',
         href: '/features',
@@ -21,11 +26,6 @@ const navs = [
         href: '/privacy-safety',
     },
 ];
-
-interface NavProps {
-    name: string;
-    href: string;
-}
 
 const Header = () => {
     const param = usePathname();
@@ -51,6 +51,13 @@ const Header = () => {
                     </Link>
 
                     <nav className='flex items-center gap-9 mobile:hidden'>
+                        <a
+                            className='group text-sm font-medium relative bg-messenger bg-clip-text text-transparent'
+                            href='https://facebook-clone-nextjs-2023.vercel.app/'
+                            target='_blank'>
+                            <div className='py-[6px]'>Facebook UI</div>
+                            <div className='absolute bottom-0 w-full h-[3px] rounded-lg scale-0  bg-primary group-hover:scale-100 group-focus:scale-x-100 transition-all duration-300'></div>
+                        </a>
                         {navs.map((item: NavProps, index: number) => {
                             return (
                                 <Link
