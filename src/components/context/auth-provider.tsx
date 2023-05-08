@@ -33,11 +33,13 @@ export default function AuthProvider({ children }: IContextProps) {
                 router.push('/messenger');
                 return;
             }
-            // if (!user) {
-            setUser(null);
-            setLoading(false);
-            router.push('/');
-            console.log('Is not user', user);
+
+            if (!user) {
+                setUser(null);
+                setLoading(false);
+                router.push('/');
+                console.log('Is not user', user);
+            }
         });
 
         return () => {
