@@ -38,8 +38,6 @@ const MainChat: React.FC<IMainChatProps> = ({
         return () => unsub();
     }, [chatId]);
 
-    // console.log('Check messages', messages);
-
     return (
         <section className='relative w-full h-full'>
             <header className='p-1 border border-b flex items-center justify-between absolute top-0 right-0 left-0 bg-[rgba(255,255,255,.98)]'>

@@ -29,8 +29,6 @@ const Chat: React.FC<IProps> = ({ userId, closeChat }) => {
         userId && getUser();
     }, [userId]);
 
-    // console.log('Check user', user);
-
     return (
         <section className='flex h-full'>
             <div className='flex-1'>

@@ -60,6 +60,7 @@ const HomeHero = () => {
                         'https://jungjung261.blob.core.windows.net/nextjs-project/MESSENGER/hero/home-hero.png'
                     }
                     style='w-full h-full object-contain'
+                    priority={true}
                 />
             </figure>
         </section>

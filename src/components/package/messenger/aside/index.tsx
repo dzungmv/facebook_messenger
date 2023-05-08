@@ -22,7 +22,6 @@ const MessenserAside = () => {
         },
     };
 
-    // console.log(user?.uid);
     useEffect(() => {
         const getChats = async () => {
             const unsub = await onSnapshot(

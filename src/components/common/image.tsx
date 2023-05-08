@@ -7,17 +7,25 @@ interface ImageProps {
     alt?: string;
     src?: StaticImageData | string;
     style?: string;
+    priority?: boolean;
 }
 
-export default function ImageC({ alt = 'image', src, style }: ImageProps) {
+export default function ImageC({
+    alt = 'image',
+    src,
+    style,
+    priority = false,
+}: ImageProps) {
     return (
         <Image
             className={style}
             alt={alt}
             src={src ?? ''}
+            priority={priority}
             width='0'
             height='0'
             sizes='100vw'
+            placeholder='blur'
         />
     );
 }

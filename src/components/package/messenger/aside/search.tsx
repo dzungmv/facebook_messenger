@@ -97,17 +97,13 @@ const MessengerSearch = () => {
                 }
 
                 // router.push(`/messenger/${combinedId}`);
-            } catch (error) {
-                console.log('error', error);
-            }
+            } catch (error) {}
 
             setSearchResult({} as User);
             setUsername('');
             setSearchBox(false);
         },
     };
-
-    // console.log('searchResult', searchResult);
 
     return (
         <>

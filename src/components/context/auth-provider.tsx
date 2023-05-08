@@ -23,21 +23,15 @@ export default function AuthProvider({ children }: IContextProps) {
     const router = useRouter();
     useEffect(() => {
         const unsubscribed = auth.onAuthStateChanged((user) => {
-            console.log(typeof user);
-
             if (user) {
                 setUser(user as User);
                 setLoading(false);
-                // console.log('Is user', user);
-                // redirect('/messenger');
                 return;
             }
 
             if (!user) {
                 setUser(null);
                 setLoading(false);
-                // console.log('Is not user', user);
-                // redirect('/');
             }
         });
 

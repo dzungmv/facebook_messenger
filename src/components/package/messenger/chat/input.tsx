@@ -106,8 +106,6 @@ const MessengerInput: React.FC<IProps> = ({ userI }) => {
         return () => URL.revokeObjectURL(objectUrl);
     }, [media]);
 
-    // console.log('check preview', preview);
-
     return (
         <footer className=' absolute bottom-0 left-0 right-0 py-2 px-2 flex items-center gap-1 bg-[rgba(255,255,255,.98)]'>
             <div className='flex items-center'>

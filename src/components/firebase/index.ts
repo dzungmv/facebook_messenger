@@ -17,7 +17,7 @@ const app = initializeApp(
 );
 
 
-console.log("check app", app.name);
+
 
 
 const db = getFirestore(app);

@@ -40,13 +40,9 @@ const LoginForm = () => {
         },
         loginWithGoogle: async () => {
             try {
-                // console.log('Login with Google');
-
                 const res = await signInWithPopup(auth, googleProvider);
 
                 const detais = getAdditionalUserInfo(res);
-
-                // console.log('Check details', detais);
 
                 if (detais?.isNewUser) {
                     await setDoc(doc(db, 'users', res.user.uid), {
@@ -60,9 +56,7 @@ const LoginForm = () => {
                 }
 
                 router.push('/messenger');
-            } catch (error) {
-                console.log(error);
-            }
+            } catch (error) {}
         },
         goToMess: () => {
             router.push('/messenger');
