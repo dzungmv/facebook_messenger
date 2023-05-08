@@ -23,17 +23,16 @@ export default function AuthProvider({ children }: IContextProps) {
     const router = useRouter();
     useEffect(() => {
         const unsubscribed = auth.onAuthStateChanged((user) => {
-            if (user) {
+            if (Object.keys(user as User).length > 0) {
                 setUser(user as User);
                 setLoading(false);
                 router.push('/messenger');
                 return;
             }
-            if (!user) {
-                setUser(null);
-                setLoading(false);
-                router.push('/');
-            }
+            // if (!user) {
+            setUser(null);
+            setLoading(false);
+            router.push('/');
         });
 
         return () => unsubscribed();
