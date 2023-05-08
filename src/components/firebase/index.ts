@@ -1,7 +1,7 @@
-import { getApp, initializeApp } from 'firebase/app';
-import { connectAuthEmulator, getAuth } from 'firebase/auth';
-import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore';
-import { connectStorageEmulator, getStorage } from 'firebase/storage';
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 
 
 const app = initializeApp(
@@ -40,6 +40,6 @@ const storage = getStorage(app);
 
 
 
-export { auth, db, storage }
+export { auth, db, storage };
 export default app;
 

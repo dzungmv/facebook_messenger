@@ -1,10 +1,10 @@
 'use client';
 
-import { User } from '../types/auth-public';
-import { useRouter } from 'next/navigation';
-import { createContext, useContext, useEffect, useState } from 'react';
-import { auth } from '../firebase';
+import { redirect, useRouter } from 'next/navigation';
+import { createContext, useEffect, useState } from 'react';
 import LoadingScreen from '../common/loading-screen';
+import { auth } from '../firebase';
+import { User } from '../types/auth-public';
 
 type IContextProps = {
     children?: React.ReactNode;
@@ -28,17 +28,16 @@ export default function AuthProvider({ children }: IContextProps) {
             if (user) {
                 setUser(user as User);
                 setLoading(false);
-                console.log('Is user', user);
-
-                router.push('/messenger');
+                // console.log('Is user', user);
+                // redirect('/messenger');
                 return;
             }
 
             if (!user) {
                 setUser(null);
                 setLoading(false);
-                router.push('/');
-                console.log('Is not user', user);
+                // console.log('Is not user', user);
+                // redirect('/');
             }
         });
 
