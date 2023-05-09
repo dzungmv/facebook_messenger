@@ -143,8 +143,11 @@ const MessenserAside = () => {
                         </div>
 
                         <div className='flex-1'>
-                            <h2 className='font-medium text-sm'>
+                            <h2 className='font-medium text-sm relative inline-block'>
                                 Chat with AI
+                                <span className=' absolute -top-2 right text-[10px] text-primary'>
+                                    Beta
+                                </span>
                             </h2>
                         </div>
                     </Link>
